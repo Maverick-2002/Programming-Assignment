@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public GameObject cubePrefab;           
-    public GameObject obstaclePrefab;        
+    public GameObject cubePrefab;
+    public GameObject obstaclePrefab;
+    public GameObject playerPrefab;
     public int numberOfObstacles = 5;
     public Transform obstaclesParent;
+
+    private GameObject player;
 
     void Start()
     {
         GenerateGrid();
         SpawnObstacles();
-
+        SpawnPlayer();
     }
+
     void GenerateGrid()
     {
         for (int x = 0; x < 10; x++)
@@ -28,8 +30,8 @@ public class GridManager : MonoBehaviour
                 cube.transform.parent = transform;
             }
         }
-
     }
+
     void SpawnObstacles()
     {
         for (int i = 0; i < numberOfObstacles; i++)
@@ -42,6 +44,7 @@ public class GridManager : MonoBehaviour
                 GameObject obstacle = Instantiate(obstaclePrefab, position, Quaternion.identity);
                 obstacle.name = $"Obstacle_{i}";
                 obstacle.transform.parent = obstaclesParent;
+                obstacle.tag = "Obstacles"; // Ensure obstacle has the correct tag
             }
             else
             {
@@ -50,10 +53,24 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    bool IsObstacleAtPosition(Vector3 position)
+    void SpawnPlayer()
+    {
+        Vector3 position = new Vector3(0, 1f, 0);
+        player = Instantiate(playerPrefab, position, Quaternion.identity);
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.SetGridManager(this);
+        }
+        else
+        {
+            Debug.LogError("Player prefab is missing PlayerController component!");
+        }
+    }
+
+    public bool IsObstacleAtPosition(Vector3 position)
     {
         Collider[] colliders = Physics.OverlapSphere(position, 0.1f); // Adjust radius as needed
-
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag("Obstacles"))
@@ -61,7 +78,6 @@ public class GridManager : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 }
