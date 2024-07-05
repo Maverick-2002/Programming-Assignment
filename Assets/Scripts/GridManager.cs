@@ -56,7 +56,7 @@ public class GridManager : MonoBehaviour
 
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Obstacle"))
+            if (collider.CompareTag("Obstacles"))
             {
                 return true;
             }
