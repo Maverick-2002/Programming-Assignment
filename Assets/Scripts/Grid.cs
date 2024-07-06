@@ -68,6 +68,10 @@ public class Grid : MonoBehaviour
         int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
         return grid[x, y];
     }
+    public Vector3 NodeToWorldPoint(Node node)
+    {
+        return node.worldPosition;
+    }
     public List<Node> path;
     void OnDrawGizmos()
     {
