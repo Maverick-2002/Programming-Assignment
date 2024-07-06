@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 147744677}
   - component: {fileID: 147744676}
   - component: {fileID: 147744675}
-  - component: {fileID: 147744674}
   - component: {fileID: 147744673}
   m_Layer: 0
   m_Name: Target
@@ -171,22 +170,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &147744674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147744672}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed046076c5ecead4ba8bfb74fc60ebab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  targetPosition: {x: 0, y: 0, z: 0}
-  isMoving: 0
-  gridManager: {fileID: 0}
 --- !u!136 &147744675
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1106,7 +1089,6 @@ GameObject:
   - component: {fileID: 1681474018091365636}
   - component: {fileID: 5030967633680350268}
   - component: {fileID: 1451551173793705542}
-  - component: {fileID: 3024579054341349110}
   - component: {fileID: 2747559880355943704}
   m_Layer: 0
   m_Name: Player
@@ -1173,22 +1155,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3024579054341349110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341805693426509071}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed046076c5ecead4ba8bfb74fc60ebab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  targetPosition: {x: 0, y: 0, z: 0}
-  isMoving: 0
-  gridManager: {fileID: 0}
 --- !u!4 &3102520678568286000
 Transform:
   m_ObjectHideFlags: 0
